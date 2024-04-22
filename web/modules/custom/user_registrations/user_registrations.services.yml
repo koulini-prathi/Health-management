@@ -1,0 +1,3 @@
+services:
+  user_registrations.bmiservices:
+    class: Drupal\user_registrations\BMIServices

@@ -1,0 +1,109 @@
+<?php
+
+function program_details_schema() {
+  $schema['program_details'] = array(
+    'description' => 'A table to store program details data',
+    'fields' => array(
+      'id' => array(
+      'description' => 'Holds the id value',
+      'type' => 'serial',
+      'unsigned' => TRUE,
+      'not null' => TRUE,
+      ),
+      'prgm_id' => array(
+        'description' => 'Holds the program ID value',
+        'type' => 'varchar',
+        'length' => '50',
+        'not null' => false,
+      ),
+      'prgm_title' => array(
+        'description' => 'Holds the program title value',
+        'type' => 'varchar',
+        'length' => '50',
+        'not null' => false,
+      ),
+     'prgm_type' => array(
+        'description' => 'Holds the program type value',
+        'type' => 'varchar',
+        'length' => '50',
+        'not null' => false,
+      ),
+      'prgm_admin' => array(
+        'description' => 'Holds the program admin value',
+        'type' => 'varchar',
+        'length' => '50',
+        'not null' => TRUE,
+      ),
+      'start_date' => array(
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => FALSE,
+      ),
+    ),  
+    'primary key' => array('id'), 
+  );
+
+  $schema['program_schedule'] = array(
+    'description' => 'A table to store program program_schedule data',
+    'fields' => array(
+      'prgm_id' => array(
+        'description' => 'Holds the program ID value',
+        'type' => 'varchar',
+        'length' => '50',
+        'not null' => TRUE,
+      ),
+      'get_start_date' => array(
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => FALSE,
+      ),
+      'week1' => array(
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => FALSE,
+      ),
+      'week2' => array(
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => FALSE,
+      ),
+      'week3' => array(
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => FALSE,
+      ),
+      'week4' => array(
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => FALSE,
+      ),
+      'week5' => array(
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => FALSE,
+      ),
+      'week6' => array(
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => FALSE,
+      ),
+      'week7' => array(
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => FALSE,
+      ),
+      'week8' => array(
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => FALSE,
+      ),
+      'week9' => array(
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => FALSE,
+      ),
+    ),  
+    'primary key' => array('prgm_id'), 
+  );  
+  return $schema;
+}

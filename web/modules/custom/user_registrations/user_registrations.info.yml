@@ -1,0 +1,5 @@
+name: User Registrations
+description: users registration related activities
+type: module
+package: custom
+core_version_requirement: ^9 || ^10

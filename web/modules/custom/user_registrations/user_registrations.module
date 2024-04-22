@@ -1,0 +1,124 @@
+<?php
+$uri = $_SERVER['REQUEST_URI'];
+
+/**
+* Implementing hook_form_alter
+*/
+
+function user_registrations_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+
+   $service = \Drupal::service('user_registrations.bmiservices');
+   $height_options = $service->heightlist();
+   $weight_options = $service->weightlist();
+   $date = date('Y-m-d');
+
+  if($form_id == 'user_register_form'){
+   
+    $form['password'] = [
+        '#type' => 'password',
+        '#title' => t('Password'),
+        '#required' => TRUE,
+        '#weight' => 1,
+    ];
+    $form['fname'] = [
+        '#type' => 'textfield',
+        '#title' => t('First Name'),
+        '#required' => TRUE,
+        '#weight' => 1,
+    ];
+    $form['lname'] = [
+        '#type' => 'textfield',
+        '#title' => t('Last Name'),
+        '#required' => TRUE,
+        '#weight' => 2,
+    ];
+    $form['gender'] = [
+        '#type' => 'radios',
+        '#title' => t('Gender'),
+        '#options' => array('female' => 'Female', 'male' => 'Male'),
+        '#required' => TRUE,
+        '#weight' => 7,
+    ];
+    $form['dob'] = [
+        '#type' => 'date',
+        '#title' => t('Date Of Birth'),
+        '#default_value' => $date,
+        '#required' => TRUE,
+        '#weight' => 6,
+    ];
+    $form['height'] = [
+        '#type' => 'select',
+        '#title' => 'Height',
+        '#options' => $height_options,
+        '#required' => TRUE,
+        '#weight' => 7,
+    ];
+    $form['weight'] = [
+        '#type' => 'select',
+        '#title' => 'Weight',
+        '#options' => $weight_options,
+        '#required' => TRUE,
+        '#weight' => 8,
+    ]; 
+    $form['#validate'][] = 'user_registrations_validate';
+    unset($form['actions']['submit']['#submit']);
+    $form['actions']['submit']['#submit'][] = 'user_registrations_submit'; 
+  }
+  return $form;
+}
+
+function user_registrations_validate (&$form, &$form_state) {
+  $child_dob = $form_state->getValue('dob');
+ 
+  $age = date_diff(date_create($child_dob), date_create('today'))->y;
+
+  if($_SERVER['HTTP_HOST'] == "go4fun.com" && ($age < 7 || $age >= 13)) {
+    $form_state->setErrorByName('dob', t("Child's age should be between 7 to 13"));
+  }else if($_SERVER['HTTP_HOST'] == "thinkeatandmove.org" && ($age < 13 || $age >= 20)) {
+    $form_state->setErrorByName('dob', t("Child's age should be between 13 to 20"));
+  }
+}
+
+function user_registrations_submit($form, &$form_state) {
+  $child_ht = $form_state->getValue('height');
+  $weight = $form_state->getValue('weight');
+
+  $bmi_service = \Drupal::service('user_registrations.bmiservices');
+
+  $weight_options = $bmi_service->weightlist();
+  $child_wt = $weight_options[$weight];
+  $child_weight = floatval($child_wt);
+  $child_height = floatval($child_ht);
+  
+  
+  $bmi_status = $bmi_service->CalculateBmi($child_height, $child_weight);
+
+  if($bmi_status == "Obese" || $bmi_status == "Overweight"){
+     $user = \Drupal\user\Entity\User::create();
+     $user->setPassword($form_state->getValue('password'));
+     $user->setEmail($form_state->getValue('mail')); 
+     $user->setUsername($form_state->getValue('name'));
+     $user->activate();
+     $res = $user->save();
+     $uid = $user->id();
+     if(isset($uid)){
+        $insert = \Drupal::database()->insert('child_registrations')
+                  ->fields(array(
+				      'id' => $uid,
+				      'fname' => $form_state->getValue('fname'),
+				      'lname' => $form_state->getValue('lname'),
+				      'gender' => $form_state->getValue('gender'),
+				      'email' => $form_state->getValue('mail'),
+				      'dob' => $form_state->getValue('dob'),
+				      'height' => $child_height,
+				      'weight' => $child_weight,
+				      'bmistatus' => $bmi_status,
+		            ))
+		          ->execute();
+     }
+  }else if($bmi_status == "Normal"){
+    \Drupal::messenger()->addmessage("Child is in healthy weight range. This program is designed for overweight and obese children");
+  }else{
+    \Drupal::messenger()->addmessage("Child is in underweight range. This program is designed for overweight and obese children");
+  }
+}

@@ -1,0 +1,5 @@
+name: Program Details
+description: contains all program related data, schedules and user registered in the programs.
+type: module
+package: custom
+core_version_requirement: ^9 || ^10
