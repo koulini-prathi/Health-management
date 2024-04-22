@@ -1,0 +1,3 @@
+program-js:
+  js:
+    js/program_details.js: {}

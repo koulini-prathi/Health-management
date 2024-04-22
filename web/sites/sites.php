@@ -57,3 +57,4 @@
  */
 $sites['go4fun.com'] = 'default';
 $sites['thinkeatandmove.org'] = 'thinkeatandmove';
+$sites['admincontrolhub.com'] = 'adminactions';

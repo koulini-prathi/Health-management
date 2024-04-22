@@ -1,0 +1,15 @@
+program_details.CreateProgram:
+  path: '/Create/Program'
+  defaults:
+    _form: '\Drupal\program_details\Form\CreateProgram'
+    _title: 'Create a Program'
+  requirements:
+    _permission: 'access content'
+
+program_details.GetUsers:
+  path: '/getusers'
+  defaults:
+    _controller: '\Drupal\program_details\Controller\GetUsers::UserList'
+    _title: 'User List'
+  requirements:
+    _permission: 'access content'

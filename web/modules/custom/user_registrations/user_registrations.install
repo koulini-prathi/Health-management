@@ -1,0 +1,64 @@
+<?php
+
+function user_registrations_schema() {
+  $schema['child_registrations'] = array(
+    'description' => 'A table to store sample data',
+    'fields' => array(
+      'id' => array(
+      'description' => 'Holds the id value',
+      'type' => 'serial',
+      'unsigned' => TRUE,
+      'not null' => TRUE,
+      ),
+      'fname' => array(
+        'description' => 'Holds the first name value',
+        'type' => 'varchar',
+        'length' => '50',
+        'not null' => false,
+      ),
+      'lname' => array(
+        'description' => 'Holds the last name value',
+        'type' => 'varchar',
+        'length' => '50',
+        'not null' => false,
+      ),
+     'gender' => array(
+        'description' => 'Holds the gender value',
+        'type' => 'varchar',
+        'length' => '50',
+        'not null' => false,
+      ),
+      'email' => array(
+        'description' => 'Holds the email value',
+        'type' => 'varchar',
+        'length' => '50',
+        'not null' => TRUE,
+      ),
+      'dob' => array(
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => FALSE,
+      ),
+      'height' => array(
+        'description' => 'Holds the height value',
+        'type' => 'varchar',
+        'length' => '50',
+        'not null' => false,
+      ),
+      'weight' => array(
+        'description' => 'Holds the weight value',
+        'type' => 'varchar',
+        'length' => '50',
+        'not null' => false,
+      ),
+      'bmistatus' => array(
+        'description' => 'Holds the bmi value',
+        'type' => 'varchar',
+        'length' => '50',
+        'not null' => false,
+      ),
+    ),  
+    'primary key' => array('id'), 
+  );  
+  return $schema;
+}
