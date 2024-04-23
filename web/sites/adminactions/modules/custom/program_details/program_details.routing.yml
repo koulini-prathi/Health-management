@@ -6,6 +6,26 @@ program_details.CreateProgram:
   requirements:
     _permission: 'access content'
 
+program_details.ProgramList:
+  path: '/programslist'
+  defaults:
+    _controller: '\Drupal\program_details\Controller\ProgramList::prgList'
+    _title: 'Programs List'
+  requirements:
+    _permission: 'access content'
+
+program_details.ProgramInfo:
+  path: '/programinfo/{prgid}'
+  defaults:
+    _controller: '\Drupal\program_details\Controller\ProgramList::prginfo'
+    _title: 'Program Info'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      prgid:
+        type: entity:prgid
+
 program_details.GetUsers:
   path: '/getusers'
   defaults:
@@ -13,3 +33,4 @@ program_details.GetUsers:
     _title: 'User List'
   requirements:
     _permission: 'access content'
+

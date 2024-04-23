@@ -23,7 +23,7 @@ Class CreateProgram extends FormBase {
         $form['prgm_id'] = [
             '#type' => 'textfield',
             '#title' => $this ->t('Program ID:'),
-            '#description' => $this->t('Program name should follow pattern like wwp-number'),
+            '#description' => $this->t('Program name should follow pattern like WWP-number'),
             '#required' => TRUE,
         ];
         $form['start_date'] = [
@@ -123,17 +123,7 @@ Class CreateProgram extends FormBase {
         $prgm_name = $form_state->getValue('prgm_id').'-'.$form_state->getValue('prgm_type').'-'.$month.$year;
         \Drupal::messenger()->addMessage($prgm_name);
         if(!empty($form_state->getValue('start_date')) && !empty($form_state->getValue('get_start_date'))){
-            $prgm_dates = [];
-            $prgm_dates['Get start date'] = $form_state->getValue('get_start_date');
-            $prgm_dates['Week1'] = $form_state->getValue('start_date');
-            $prgm_dates[] = array(
-                'weekno' => 'Get start date',
-                'weekdate' => $form_state->getValue('get_start_date'),
-            );
-            $prgm_dates[] = array(
-                'weekno' => 'Week1',
-                'weekdate' => $form_state->getValue('start_date'),
-            );
+            $prgm_db_dates = [];
             for ($i=2; $i<10; $i++) {
                 $days = ($i-1)*7 . ' days';
                 $prgm_db_dates['Week' . $i] = date('Y-m-d', strtotime($form_state->getValue('start_date'). ' + ' .$days));
@@ -166,7 +156,7 @@ Class CreateProgram extends FormBase {
                       ->execute();            
         }
         \Drupal::messenger()->addMessage('Program Created Successfully');
-        
+        $form_state->setRedirect('program_details.ProgramList');
     }
 
     
