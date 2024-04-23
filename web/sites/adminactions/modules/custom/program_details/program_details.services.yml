@@ -1,0 +1,3 @@
+services:
+  program_details.prgdata:
+    class: Drupal\program_details\ProgramData
