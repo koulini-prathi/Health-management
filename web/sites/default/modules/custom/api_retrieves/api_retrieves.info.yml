@@ -1,0 +1,5 @@
+name: Api Retrieves
+description: provides the services for retriving data from restapis
+type: module
+package: custom
+core_version_requirement: ^9.4 || ^10

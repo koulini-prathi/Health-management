@@ -1,0 +1,5 @@
+name: Admin Rest APIs
+description: Generate APIs for the adminactions
+type: module
+package: custom
+core_version_requirement: ^9.4 || ^10

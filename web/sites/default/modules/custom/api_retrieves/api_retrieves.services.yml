@@ -1,0 +1,4 @@
+services:
+  api_retrieves.getprgids:
+    class: Drupal\api_retrieves\GetProgramId
+    arguments: ["@http_client"]

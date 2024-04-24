@@ -10,6 +10,10 @@ function user_registrations_form_alter(&$form, \Drupal\Core\Form\FormStateInterf
    $service = \Drupal::service('user_registrations.bmiservices');
    $height_options = $service->heightlist();
    $weight_options = $service->weightlist();
+   
+   $prgIDsservice = \Drupal::service('api_retrieves.getprgids');
+   $prgids = $prgIDsservice->GetProgramId();
+   //dsm($prgids);
    $date = date('Y-m-d');
 
   if($form_id == 'user_register_form'){
@@ -60,6 +64,14 @@ function user_registrations_form_alter(&$form, \Drupal\Core\Form\FormStateInterf
         '#required' => TRUE,
         '#weight' => 8,
     ]; 
+    $form['prgmid'] = [
+        '#type' => 'select',
+        '#title' => 'Program ID',
+        '#options' => $prgids,
+        '#required' => TRUE,
+        '#weight' => 9,
+    ]; 
+    
     $form['#validate'][] = 'user_registrations_validate';
     unset($form['actions']['submit']['#submit']);
     $form['actions']['submit']['#submit'][] = 'user_registrations_submit'; 
@@ -90,6 +102,9 @@ function user_registrations_submit($form, &$form_state) {
   $child_weight = floatval($child_wt);
   $child_height = floatval($child_ht);
   
+  $prgIDsservice = \Drupal::service('api_retrieves.getprgids');
+  $prgids = $prgIDsservice->GetProgramId();
+  $programid = $prgids[$form_state->getValue('prgmid')];
   
   $bmi_status = $bmi_service->CalculateBmi($child_height, $child_weight);
 
@@ -113,6 +128,7 @@ function user_registrations_submit($form, &$form_state) {
 				      'height' => $child_height,
 				      'weight' => $child_weight,
 				      'bmistatus' => $bmi_status,
+              'prgmid' => $programid,
 		            ))
 		          ->execute();
      }
