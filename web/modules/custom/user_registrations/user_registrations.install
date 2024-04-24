@@ -57,6 +57,11 @@ function user_registrations_schema() {
         'length' => '50',
         'not null' => false,
       ),
+      'prgmid' => array(
+        'type' => 'varchar',
+        'length' => '50',
+        'not null' => false,
+      ),
     ),  
     'primary key' => array('id'), 
   );  
