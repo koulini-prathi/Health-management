@@ -1,1 +1,6 @@
 vendor/
+
+# Ignore paths that contain user-generated content.
+web/sites/*/files
+/files-private
+web/sites/*/private
