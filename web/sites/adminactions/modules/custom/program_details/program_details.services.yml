@@ -1,3 +1,7 @@
 services:
   program_details.prgdata:
     class: Drupal\program_details\ProgramData
+
+  program_details.particpantdata:
+    class: Drupal\program_details\GetParticipantData
+    arguments: ["@http_client"]

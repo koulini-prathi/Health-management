@@ -83,7 +83,8 @@ Class ProgramList extends ControllerBase {
                 );
             }
         }
-        //\Drupal::logger('prgm_dates')->warning('<pre><code>' . print_r($prgm_dates, TRUE) . '</code></pre>');
+        
+        //\Drupal::logger('prgm_dates')->warning('<pre><code>' . print_r($participantdata, TRUE) . '</code></pre>');
         $prgheaders = array(
             'week' => $this->t('Week List'),
             'date' => $this->t('Date'),
@@ -93,6 +94,41 @@ Class ProgramList extends ControllerBase {
             '#header' => $prgheaders,
             '#rows' => $prgm_dates,
         ];
+
+        
+        $participantservice = \Drupal::service('program_details.particpantdata');
+        $participantsdata = $participantservice->GetParticipantInfo($prgid);
+
+        $partheaders = array($this->t('Participants List:'));
+        $partrows[] = array('data' => array(''), 'colspan' => 12);
+        $form['part_tab'] = [        
+            '#type' => 'table',
+            '#header' => $partheaders,
+            '#rows' => $partrows,
+        ];
+        
+        $participantheaders = array(
+            'fullname' => $this->t('Full Name'),
+            'email' => $this->t('Email ID'),
+            'bmistatus' => $this->t('BMI Status'),
+        );
+        $participant_rows = [];
+        foreach($participantsdata as $id => $participantinfo){
+          $parturl = Url::fromRoute('program_details.ParticipantData', array('uid'=>$id,'prgid' => $prgid));
+          $participant_fullname = Link::fromTextAndUrl($participantinfo->fname.' '.$participantinfo->lname, $parturl);
+          $participant_rows[] = array(
+            'fullname' => $participant_fullname,
+            'email' => $participantinfo->email,
+            'bmistatus' => $participantinfo->bmistatus,
+          );
+        }
+        
+        $form['part_data_tab'] = [        
+            '#type' => 'table',
+            '#header' => $participantheaders,
+            '#rows' => $participant_rows,
+        ];
+
         return $form;
     }
   
