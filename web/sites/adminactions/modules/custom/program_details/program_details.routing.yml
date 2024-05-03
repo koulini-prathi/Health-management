@@ -34,3 +34,16 @@ program_details.GetUsers:
   requirements:
     _permission: 'access content'
 
+
+program_details.ParticipantData:
+  path: '/participant/{uid}/{prgid}'
+  defaults:
+    _controller: '\Drupal\program_details\Controller\ParticipantInfo::DisplayParticipantData'
+    _title: 'Participant Info'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      uid:
+        type: entity:uid
+

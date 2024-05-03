@@ -1,3 +1,6 @@
 services:
   user_registrations.bmiservices:
     class: Drupal\user_registrations\BMIServices
+  
+  user_registrations.participantsinfo:
+    class: Drupal\user_registrations\ParticipantsInfo
