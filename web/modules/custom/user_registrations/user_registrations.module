@@ -76,6 +76,7 @@ function user_registrations_form_alter(&$form, \Drupal\Core\Form\FormStateInterf
     unset($form['actions']['submit']['#submit']);
     $form['actions']['submit']['#submit'][] = 'user_registrations_submit'; 
   }
+  
   return $form;
 }
 

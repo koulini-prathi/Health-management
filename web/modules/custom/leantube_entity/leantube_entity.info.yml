@@ -1,0 +1,7 @@
+name: Lean Tube
+description: Handles all actions related to this entity type
+type: module
+package: custom
+core_version_requirement: ^9 || ^10
+dependencies:
+  - node

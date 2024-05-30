@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.leantube_entity
+  module:
+    - text
+id: node.leantube_entity.body
+field_name: body
+entity_type: node
+bundle: leantube_entity
+label: 'LeanTube Description'
+description: 'More specific information about the content.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

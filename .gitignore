@@ -4,3 +4,5 @@ vendor/
 web/sites/*/files
 /files-private
 web/sites/*/private
+web/sites/default/files/
+web/sites/adminactions/files/
