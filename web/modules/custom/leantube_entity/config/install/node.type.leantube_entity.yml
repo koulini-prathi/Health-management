@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - leantube_entity
+name: 'Lean Tube'
+type: leantube_entity
+description: 'Content type that can be used to add youtube videos.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

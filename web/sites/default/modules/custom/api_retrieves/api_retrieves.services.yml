@@ -2,3 +2,6 @@ services:
   api_retrieves.getprgids:
     class: Drupal\api_retrieves\GetProgramId
     arguments: ["@http_client"]
+  api_retrieves.getprgschs:
+    class: Drupal\api_retrieves\GetProgramSchedule
+    arguments: ["@http_client"]

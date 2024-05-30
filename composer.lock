@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "926229075309654a92beb83068aabdff",
+    "content-hash": "b819513b9d89dc8c747724a3936cf5d9",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1290,6 +1290,86 @@
             }
         },
         {
+            "name": "drupal/saml_sp",
+            "version": "4.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/saml_sp.git",
+                "reference": "4.3.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/saml_sp-4.3.2.zip",
+                "reference": "4.3.2",
+                "shasum": "3658e570d1e096a41c7e5e64675ab49745c4ac93"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10 || ^11",
+                "onelogin/php-saml": "^3.3.1 | ^4.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "4.3.2",
+                    "datestamp": "1715871008",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "James Glasgow (jrglasgow)",
+                    "homepage": "https://www.drupal.org/u/jrglasgow",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "jproctor",
+                    "homepage": "https://www.drupal.org/user/1194192"
+                },
+                {
+                    "name": "jrglasgow",
+                    "homepage": "https://www.drupal.org/user/36590"
+                },
+                {
+                    "name": "lakesta",
+                    "homepage": "https://www.drupal.org/user/2587378"
+                },
+                {
+                    "name": "Lukey",
+                    "homepage": "https://www.drupal.org/user/255347"
+                },
+                {
+                    "name": "manarth",
+                    "homepage": "https://www.drupal.org/user/321496"
+                },
+                {
+                    "name": "mErilainen",
+                    "homepage": "https://www.drupal.org/user/304437"
+                },
+                {
+                    "name": "RunePhilosof",
+                    "homepage": "https://www.drupal.org/user/629892"
+                },
+                {
+                    "name": "safetypin",
+                    "homepage": "https://www.drupal.org/user/120508"
+                }
+            ],
+            "description": "API module to validate SAML IdP (Identity Provider) credentials.",
+            "homepage": "https://drupal.org/project/saml_sp",
+            "support": {
+                "source": "http://cgit.drupalcode.org/saml_sp",
+                "issues": "https://drupal.org/project/issues/saml_sp",
+                "irc": "irc://irc.freenode.org/drupal-contribute"
+            }
+        },
+        {
             "name": "drupal/smtp",
             "version": "1.2.0",
             "source": {
@@ -1876,6 +1956,62 @@
                 "source": "https://github.com/mck89/peast/tree/v1.15.4"
             },
             "time": "2023-08-12T08:29:29+00:00"
+        },
+        {
+            "name": "onelogin/php-saml",
+            "version": "4.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/onelogin/php-saml.git",
+                "reference": "b22a57ebd13e838b90df5d3346090bc37056409d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/onelogin/php-saml/zipball/b22a57ebd13e838b90df5d3346090bc37056409d",
+                "reference": "b22a57ebd13e838b90df5d3346090bc37056409d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.3",
+                "robrichards/xmlseclibs": ">=3.1.1"
+            },
+            "require-dev": {
+                "pdepend/pdepend": "^2.8.0",
+                "php-coveralls/php-coveralls": "^2.0",
+                "phploc/phploc": "^4.0 || ^5.0 || ^6.0 || ^7.0",
+                "phpunit/phpunit": "^9.5",
+                "sebastian/phpcpd": "^4.0 || ^5.0 || ^6.0 ",
+                "squizlabs/php_codesniffer": "^3.5.8"
+            },
+            "suggest": {
+                "ext-curl": "Install curl lib to be able to use the IdPMetadataParser for parsing remote XMLs",
+                "ext-dom": "Install xml lib",
+                "ext-openssl": "Install openssl lib in order to handle with x509 certs (require to support sign and encryption)",
+                "ext-zlib": "Install zlib"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "OneLogin\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "OneLogin PHP SAML Toolkit",
+            "homepage": "https://developers.onelogin.com/saml/php",
+            "keywords": [
+                "SAML2",
+                "onelogin",
+                "saml"
+            ],
+            "support": {
+                "email": "sixto.garcia@onelogin.com",
+                "issues": "https://github.com/onelogin/php-saml/issues",
+                "source": "https://github.com/onelogin/php-saml/"
+            },
+            "time": "2022-07-15T20:44:36+00:00"
         },
         {
             "name": "pear/archive_tar",
@@ -2602,6 +2738,48 @@
                 "source": "https://github.com/ralouphie/getallheaders/tree/develop"
             },
             "time": "2019-03-08T08:55:37+00:00"
+        },
+        {
+            "name": "robrichards/xmlseclibs",
+            "version": "3.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/robrichards/xmlseclibs.git",
+                "reference": "f8f19e58f26cdb42c54b214ff8a820760292f8df"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/robrichards/xmlseclibs/zipball/f8f19e58f26cdb42c54b214ff8a820760292f8df",
+                "reference": "f8f19e58f26cdb42c54b214ff8a820760292f8df",
+                "shasum": ""
+            },
+            "require": {
+                "ext-openssl": "*",
+                "php": ">= 5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "RobRichards\\XMLSecLibs\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "A PHP library for XML Security",
+            "homepage": "https://github.com/robrichards/xmlseclibs",
+            "keywords": [
+                "security",
+                "signature",
+                "xml",
+                "xmldsig"
+            ],
+            "support": {
+                "issues": "https://github.com/robrichards/xmlseclibs/issues",
+                "source": "https://github.com/robrichards/xmlseclibs/tree/3.1.1"
+            },
+            "time": "2020-09-05T13:00:25+00:00"
         },
         {
             "name": "sebastian/diff",
