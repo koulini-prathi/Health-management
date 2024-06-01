@@ -21,9 +21,12 @@
         "drupal/core-project-message": "^10.2",
         "drupal/core-recommended": "^10.2",
         "drupal/devel": "^5.1",
+        "drupal/easy_breadcrumb": "^2.0",
+        "drupal/menu_breadcrumb": "^2.0@alpha",
         "drupal/restui": "^1.21",
         "drupal/saml_sp": "^4.2",
-        "drupal/smtp": "^1.2"
+        "drupal/smtp": "^1.2",
+        "drupal/webform": "^6.2"
     },
     "conflict": {
         "drupal/drupal": "*"
