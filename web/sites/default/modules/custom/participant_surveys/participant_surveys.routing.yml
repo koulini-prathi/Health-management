@@ -1,0 +1,7 @@
+participant_surveys.surveyslist:
+  path: '/surveys'
+  defaults:
+    _controller: '\Drupal\participant_surveys\Controller\SurveysList::listsurveys'
+    _title: 'surveys'
+  requirements:
+    _permission: 'access content'

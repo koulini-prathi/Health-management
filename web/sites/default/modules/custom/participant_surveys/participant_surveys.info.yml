@@ -1,0 +1,5 @@
+name: Participant Surveys
+description: Maintain list of surveys i.e physical activity, eating habits and measurements
+type: module
+package: custom
+core_version_requirement: ^9.4 || ^10
