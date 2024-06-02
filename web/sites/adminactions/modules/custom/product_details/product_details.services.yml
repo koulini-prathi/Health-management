@@ -1,0 +1,3 @@
+services:
+  product_details.productinfo:
+    class: Drupal\product_details\ProductInfo

@@ -41,7 +41,7 @@ Class CreateProgram extends FormBase {
         $form['prgm_type'] = [
             '#type' => 'select',
             '#title' => $this->t("Program Type"),
-            '#options' => array('go4fun' => 'Go4Fun', 'think' => 'Think eat and move'),
+            '#options' => array('G4FOAU1.0' => 'Go4Fun', 'TEAMAU1.0' => 'Think eat and move'),
             '#required' => TRUE,
         ];
         $form['prgm_admin'] = [

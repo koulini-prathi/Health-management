@@ -1,0 +1,23 @@
+product_details.productslist:
+  path: '/products'
+  defaults:
+    _controller: '\Drupal\product_details\Controller\ProductList::listproducts'
+    _title: 'Product List'
+  requirements:
+    _permission: 'access content'
+
+product_details.createproduct:
+  path: '/create/product'
+  defaults:
+    _form: '\Drupal\product_details\Form\CreateProduct'
+    _title: 'Create Product'
+  requirements:
+    _permission: 'access content'
+
+product_details.productinfo:
+  path: '/product/{prdtid}'
+  defaults:
+    _controller: '\Drupal\product_details\Controller\ProductList::ProductInformation'
+    _title: 'Product Information'
+  requirements:
+    _permission: 'access content'
