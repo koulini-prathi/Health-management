@@ -1,0 +1,5 @@
+name: Participant Questionnaries
+description: Stores all the questionnarie related details
+type: module
+package: custom
+core_version_requirement: ^9.4 || ^10
