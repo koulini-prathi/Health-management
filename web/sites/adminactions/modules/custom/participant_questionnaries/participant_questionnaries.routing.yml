@@ -1,0 +1,147 @@
+participant_questionnaries.nutrition:
+  path: 'participant/{partid}/{progid}/nutrition'
+  defaults:
+    _form: '\Drupal\participant_questionnaries\Form\NutritionQuestionnarie'
+    _title: 'Nutrition Questionnarie'
+  requirements:
+    _permission: 'access content'
+
+participant_questionnaries.editnutrition:
+  path: 'participant/{partid}/{progid}/edit/nutrition/{msrtype}'
+  defaults:
+    _form: '\Drupal\participant_questionnaries\Form\NutritionQuestionnarie'
+    _title: 'Nutrition Questionnarie'
+  requirements:
+    _permission: 'access content'
+
+participant_questionnaries.physicalactivity:
+  path: 'participant/{partid}/{progid}/physicalactivity'
+  defaults:
+    _form: '\Drupal\participant_questionnaries\Form\PhysicalActivityQuestionnaire'
+    _title: 'Physical Activity Questionnarie'
+  requirements:
+    _permission: 'access content'
+
+participant_questionnaries.editphysicalactivity:
+  path: 'participant/{partid}/{progid}/edit/physicalactivity/{msrtype}'
+  defaults:
+    _form: '\Drupal\participant_questionnaries\Form\PhysicalActivityQuestionnaire'
+    _title: 'Physical Activity Questionnarie'
+  requirements:
+    _permission: 'access content'
+
+participant_questionnaries.socialdata:
+  path: 'participant/{partid}/{progid}/socialdata'
+  defaults:
+    _form: '\Drupal\participant_questionnaries\Form\SocialDataQuestionnaire'
+    _title: 'Social Data Questionnarie'
+  requirements:
+    _permission: 'access content'
+
+
+participant_questionnaries.editsocialdata:
+  path: 'participant/{partid}/{progid}/edit/socialdata/{msrtype}'
+  defaults:
+    _form: '\Drupal\participant_questionnaries\Form\SocialDataQuestionnaire'
+    _title: 'Social Data Questionnarie'
+  requirements:
+    _permission: 'access content'
+
+participant_questionnaries.selfesteem:
+  path: 'participant/{partid}/{progid}/selfesteem'
+  defaults:
+    _form: '\Drupal\participant_questionnaries\Form\SelfEsteemQuestionnaire'
+    _title: 'Social Data Questionnarie'
+  requirements:
+    _permission: 'access content'
+
+
+participant_questionnaries.editselfesteem:
+  path: 'participant/{partid}/{progid}/edit/selfesteem/{msrtype}'
+  defaults:
+    _form: '\Drupal\participant_questionnaries\Form\SelfEsteemQuestionnaire'
+    _title: 'Social Data Questionnarie'
+  requirements:
+    _permission: 'access content'
+
+participant_questionnaries.measurement:
+  path: 'participant/{partid}/{progid}/measurement'
+  defaults:
+    _form: '\Drupal\participant_questionnaries\Form\MeasurementQuestionnaire'
+    _title: 'Measurement Questionnarie'
+  requirements:
+    _permission: 'access content'
+
+
+participant_questionnaries.editmeasurement:
+  path: 'participant/{partid}/{progid}/edit/measurement/{msrtype}'
+  defaults:
+    _form: '\Drupal\participant_questionnaries\Form\MeasurementQuestionnaire'
+    _title: 'Measurement Questionnarie'
+  requirements:
+    _permission: 'access content'
+
+participant_questionnaries.feedback:
+  path: 'participant/{partid}/{progid}/feedback'
+  defaults:
+    _form: '\Drupal\participant_questionnaries\Form\FeedbackQuestionnaire'
+    _title: 'Feedback Questionnarie'
+  requirements:
+    _permission: 'access content'
+
+
+participant_questionnaries.editfeedback:
+  path: 'participant/{partid}/{progid}/edit/feedback/{msrtype}'
+  defaults:
+    _form: '\Drupal\participant_questionnaries\Form\FeedbackQuestionnaire'
+    _title: 'Feedback Questionnarie'
+  requirements:
+    _permission: 'access content'
+
+participant_questionnaries.viewnutrition:
+  path: 'participant/{partid}/{msrtype}/{progid}/viewnutrition'
+  defaults:
+    _controller: '\Drupal\participant_questionnaries\Controller\ViewQuestionnaire::ViewNutrition'
+    _title: 'View Nutrition Questionnarie'
+  requirements:
+    _permission: 'access content'
+
+participant_questionnaries.viewphysical:
+  path: 'participant/{partid}/{msrtype}/{progid}/viewphysicalactivity'
+  defaults:
+    _controller: '\Drupal\participant_questionnaries\Controller\ViewQuestionnaire::ViewPhysicalActivity'
+    _title: 'View Physical Data Questionnarie'
+  requirements:
+    _permission: 'access content'
+
+participant_questionnaries.viewsocial:
+  path: 'participant/{partid}/{msrtype}/{progid}/viewsocialdata'
+  defaults:
+    _controller: '\Drupal\participant_questionnaries\Controller\ViewQuestionnaire::ViewSocialData'
+    _title: 'View Social Data Questionnarie'
+  requirements:
+    _permission: 'access content'
+  
+participant_questionnaries.viewmeasurement:
+  path: 'participant/{partid}/{msrtype}/{progid}/viewmeasurement'
+  defaults:
+    _controller: '\Drupal\participant_questionnaries\Controller\ViewQuestionnaire::ViewMeasurement'
+    _title: 'View Measurement Questionnarie'
+  requirements:
+    _permission: 'access content'
+
+participant_questionnaries.viewselfesteem:
+  path: 'participant/{partid}/{msrtype}/{progid}/viewselfesteem'
+  defaults:
+    _controller: '\Drupal\participant_questionnaries\Controller\ViewQuestionnaire::ViewSelfEsteem'
+    _title: 'View Self Esteem Questionnarie'
+  requirements:
+    _permission: 'access content'
+
+participant_questionnaries.viewfeedback:
+  path: 'participant/{partid}/{msrtype}/{progid}/viewfeedback'
+  defaults:
+    _controller: '\Drupal\participant_questionnaries\Controller\ViewQuestionnaire::ViewFeedback'
+    _title: 'View Feedback Questionnarie'
+  requirements:
+    _permission: 'access content'

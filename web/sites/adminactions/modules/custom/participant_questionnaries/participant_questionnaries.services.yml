@@ -1,0 +1,3 @@
+services:
+  participant_questionnaries.qstdata:
+    class: Drupal\participant_questionnaries\QuestionnarieData
